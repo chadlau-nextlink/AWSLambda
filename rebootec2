@@ -1,0 +1,8 @@
+import boto3
+region = 'regionid'
+instances = ['instanceid']
+
+def lambda_handler(event, context):
+	ec2 = boto3.client('ec2', region_name=region)
+	ec2.reboot_instances(InstanceIds=instances)
+	print 'reboot your instances: ' + str(instances)
